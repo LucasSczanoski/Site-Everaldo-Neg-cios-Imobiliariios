@@ -1,0 +1,1401 @@
+```css
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: "DM Sans", sans-serif;
+    color: #17231f;
+    background: #f8f8f5;
+    line-height: 1.6;
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+button,
+input,
+select {
+    font: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+
+/* =========================================================
+   VARIÁVEIS
+========================================================= */
+
+:root {
+    --primary: #183b32;
+    --primary-dark: #102b24;
+    --primary-light: #285548;
+
+    --accent: #c6a15b;
+    --accent-dark: #a98645;
+
+    --dark: #17231f;
+    --text: #53605b;
+    --muted: #7c8581;
+
+    --light: #f8f8f5;
+    --white: #ffffff;
+    --border: #e5e7e3;
+
+    --shadow-sm: 0 5px 20px rgba(20, 40, 34, 0.06);
+    --shadow: 0 15px 45px rgba(20, 40, 34, 0.10);
+    --shadow-lg: 0 25px 70px rgba(20, 40, 34, 0.16);
+
+    --radius-sm: 10px;
+    --radius: 18px;
+    --radius-lg: 28px;
+
+    --container: 1240px;
+}
+
+
+/* =========================================================
+   CONTAINER
+========================================================= */
+
+.container {
+    width: min(100% - 40px, var(--container));
+    margin-inline: auto;
+}
+
+
+/* =========================================================
+   TIPOGRAFIA
+========================================================= */
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: "Playfair Display", serif;
+    line-height: 1.15;
+}
+
+h1 {
+    font-size: clamp(3rem, 6vw, 5.5rem);
+}
+
+h2 {
+    font-size: clamp(2.2rem, 4vw, 3.6rem);
+}
+
+h3 {
+    font-size: 1.45rem;
+}
+
+p {
+    color: var(--text);
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+    position: absolute;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 22px 0;
+    color: var(--white);
+}
+
+.header-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+
+/* LOGO */
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-icon {
+    width: 44px;
+    height: 44px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 50%;
+    color: var(--accent);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.05;
+}
+
+.logo-text strong {
+    font-family: "Playfair Display", serif;
+    font-size: 1.35rem;
+}
+
+.logo-text small {
+    font-size: 0.65rem;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    opacity: 0.75;
+}
+
+
+/* NAV */
+
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 32px;
+}
+
+.nav a {
+    position: relative;
+    font-size: 0.9rem;
+    font-weight: 500;
+    opacity: 0.9;
+    transition: 0.3s;
+}
+
+.nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -7px;
+    width: 0;
+    height: 1px;
+    background: var(--accent);
+    transition: 0.3s;
+}
+
+.nav a:hover {
+    opacity: 1;
+}
+
+.nav a:hover::after {
+    width: 100%;
+}
+
+
+/* HEADER WHATSAPP */
+
+.header-whatsapp {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 11px 18px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 100px;
+    font-size: 0.85rem;
+    transition: 0.3s;
+}
+
+.header-whatsapp:hover {
+    background: var(--white);
+    color: var(--primary);
+}
+
+
+/* MENU MOBILE */
+
+.menu-mobile {
+    display: none;
+    width: 44px;
+    height: 44px;
+    border: 1px solid rgba(255,255,255,0.35);
+    border-radius: 50%;
+    background: transparent;
+    color: white;
+}
+
+
+/* =========================================================
+   HERO
+========================================================= */
+
+.hero {
+    background:
+        linear-gradient(
+            90deg,
+            rgba(10, 28, 23, 0.92) 0%,
+            rgba(10, 28, 23, 0.70) 45%,
+            rgba(10, 28, 23, 0.20) 100%
+        ),
+        url("../images/hero.jpg") center/cover no-repeat;
+}
+.hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            180deg,
+            rgba(0,0,0,0.25),
+            transparent 40%,
+            rgba(0,0,0,0.25)
+        );
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    max-width: 780px;
+    padding-top: 100px;
+    color: white;
+}
+
+.hero-label {
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 25px;
+    color: var(--accent);
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.hero h1 {
+    margin-bottom: 25px;
+    font-weight: 600;
+    letter-spacing: -0.03em;
+}
+
+.hero h1 span {
+    color: #e1c98f;
+}
+
+.hero p {
+    max-width: 600px;
+    margin-bottom: 38px;
+    color: rgba(255,255,255,0.82);
+    font-size: 1.08rem;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+}
+
+
+/* =========================================================
+   BOTÕES
+========================================================= */
+
+.btn {
+    min-height: 54px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 0 25px;
+    border-radius: 100px;
+    border: 1px solid transparent;
+    font-size: 0.9rem;
+    font-weight: 700;
+    transition:
+        transform 0.3s,
+        background 0.3s,
+        color 0.3s,
+        border 0.3s;
+}
+
+.btn:hover {
+    transform: translateY(-3px);
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: var(--primary-dark);
+}
+
+.btn-primary:hover {
+    background: #d7b66f;
+}
+
+.btn-outline {
+    border-color: rgba(255,255,255,0.4);
+    color: white;
+}
+
+.btn-outline:hover {
+    background: white;
+    color: var(--primary);
+}
+
+.btn-dark {
+    background: var(--primary);
+    color: white;
+}
+
+.btn-dark:hover {
+    background: var(--primary-dark);
+}
+
+.btn-light {
+    background: white;
+    color: var(--primary);
+}
+
+.btn-light:hover {
+    background: #f0eee6;
+}
+
+
+/* =========================================================
+   BUSCA
+========================================================= */
+
+.search-section {
+    position: relative;
+    z-index: 5;
+    margin-top: -75px;
+}
+
+.search-box {
+    padding: 32px;
+    border-radius: var(--radius);
+    background: white;
+    box-shadow: var(--shadow-lg);
+}
+
+.search-title {
+    margin-bottom: 22px;
+}
+
+.search-title span {
+    color: var(--accent-dark);
+    font-size: 0.75rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.search-title h2 {
+    margin-top: 5px;
+    font-size: 1.8rem;
+}
+
+.property-search {
+    display: grid;
+    grid-template-columns: 1fr 1.3fr 1fr auto;
+    gap: 12px;
+}
+
+.search-field {
+    min-width: 0;
+    padding: 13px 17px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    transition: 0.3s;
+}
+
+.search-field:focus-within {
+    border-color: var(--accent);
+    box-shadow: 0 0 0 3px rgba(198,161,91,0.12);
+}
+
+.search-field label {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    margin-bottom: 4px;
+    color: var(--muted);
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.search-field label i {
+    color: var(--accent-dark);
+}
+
+.search-field input,
+.search-field select {
+    width: 100%;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: var(--dark);
+    font-size: 0.9rem;
+}
+
+.search-button {
+    min-height: 76px;
+    border: 0;
+}
+
+
+/* =========================================================
+   SEÇÕES
+========================================================= */
+
+.properties-section,
+.about-section,
+.steps-section,
+.contact-section {
+    padding: 120px 0;
+}
+
+.section-heading {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.section-heading.centered {
+    display: block;
+    text-align: center;
+}
+
+.section-label {
+    display: block;
+    margin-bottom: 12px;
+    color: var(--accent-dark);
+    font-size: 0.76rem;
+    font-weight: 800;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+}
+
+.view-all {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--primary);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.view-all i {
+    transition: transform 0.3s;
+}
+
+.view-all:hover i {
+    transform: translateX(5px);
+}
+
+
+/* =========================================================
+   IMÓVEIS
+========================================================= */
+
+.properties-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.property-card {
+    overflow: hidden;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: white;
+    transition:
+        transform 0.35s,
+        box-shadow 0.35s;
+}
+
+.property-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow);
+}
+
+.property-image {
+    position: relative;
+    height: 280px;
+    overflow: hidden;
+}
+
+.property-image img {
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s;
+}
+
+.property-card:hover .property-image img {
+    transform: scale(1.06);
+}
+
+.property-status {
+    position: absolute;
+    top: 16px;
+    left: 16px;
+    padding: 7px 12px;
+    border-radius: 100px;
+    background: white;
+    color: var(--primary);
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.favorite {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    width: 40px;
+    height: 40px;
+    display: grid;
+    place-items: center;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.95);
+    color: var(--primary);
+    transition: 0.3s;
+}
+
+.favorite:hover {
+    background: var(--primary);
+    color: white;
+}
+
+.property-content {
+    padding: 25px;
+}
+
+.property-type {
+    color: var(--accent-dark);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+}
+
+.property-content h3 {
+    margin: 7px 0;
+    font-size: 1.35rem;
+}
+
+.property-location {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 20px;
+    font-size: 0.82rem;
+}
+
+.property-location i {
+    color: var(--accent-dark);
+}
+
+.property-features {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 15px 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.property-features span {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+    font-size: 0.75rem;
+}
+
+.property-features i {
+    color: var(--primary);
+}
+
+.property-footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    gap: 15px;
+    padding-top: 20px;
+}
+
+.property-footer small {
+    display: block;
+    color: var(--muted);
+    font-size: 0.65rem;
+}
+
+.property-footer strong {
+    display: block;
+    margin-top: 3px;
+    color: var(--primary);
+    font-size: 1.15rem;
+}
+
+.property-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    color: var(--primary);
+    font-size: 0.78rem;
+    font-weight: 800;
+}
+
+.property-button i {
+    transition: transform 0.3s;
+}
+
+.property-button:hover i {
+    transform: translateX(4px);
+}
+
+
+/* =========================================================
+   SOBRE
+========================================================= */
+
+.about-section {
+    background: white;
+}
+
+.about-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 90px;
+}
+
+.about-image {
+    position: relative;
+}
+
+.about-image > img {
+    height: 650px;
+    object-fit: cover;
+    border-radius: var(--radius-lg);
+}
+
+.about-badge {
+    position: absolute;
+    right: -25px;
+    bottom: 35px;
+    min-width: 170px;
+    padding: 22px;
+    border-radius: var(--radius);
+    background: var(--primary);
+    color: white;
+    box-shadow: var(--shadow);
+}
+
+.about-badge strong {
+    display: block;
+    font-family: "Playfair Display", serif;
+    font-size: 1.25rem;
+}
+
+.about-badge span {
+    color: rgba(255,255,255,0.7);
+    font-size: 0.75rem;
+}
+
+.about-content h2 {
+    margin-bottom: 25px;
+}
+
+.about-content h2 span {
+    color: var(--primary-light);
+}
+
+.about-content > p {
+    margin-bottom: 15px;
+}
+
+.about-features {
+    margin: 35px 0;
+}
+
+.about-features > div {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--border);
+}
+
+.about-features i {
+    width: 45px;
+    height: 45px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: #eef3f0;
+    color: var(--primary);
+}
+
+.about-features strong,
+.about-features span {
+    display: block;
+}
+
+.about-features strong {
+    font-size: 0.9rem;
+}
+
+.about-features span {
+    color: var(--muted);
+    font-size: 0.78rem;
+}
+
+
+/* =========================================================
+   VENDA SEU IMÓVEL
+========================================================= */
+
+.sell-section {
+    padding: 130px 0;
+    position: relative;
+    overflow: hidden;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(24,59,50,0.98),
+            rgba(24,59,50,0.86)
+        ),
+        url("../images/venda-imovel.jpg") center/cover no-repeat;
+    color: white;
+}
+
+.sell-content {
+    max-width: 700px;
+}
+
+.sell-content .section-label {
+    color: #d8bb7a;
+}
+
+.sell-content h2 {
+    margin-bottom: 20px;
+}
+
+.sell-content p {
+    max-width: 600px;
+    margin-bottom: 30px;
+    color: rgba(255,255,255,0.75);
+}
+
+
+/* =========================================================
+   PASSOS
+========================================================= */
+
+.steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.step {
+    position: relative;
+    padding: 35px 25px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    background: white;
+    text-align: center;
+}
+
+.step-number {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    color: #dfe5e1;
+    font-family: "Playfair Display", serif;
+    font-size: 1.5rem;
+}
+
+.step-icon {
+    width: 65px;
+    height: 65px;
+    margin: 10px auto 20px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: #eef3f0;
+    color: var(--primary);
+    font-size: 1.2rem;
+}
+
+.step h3 {
+    margin-bottom: 8px;
+    font-size: 1.25rem;
+}
+
+.step p {
+    font-size: 0.82rem;
+}
+
+
+/* =========================================================
+   CONTATO
+========================================================= */
+
+.contact-section {
+    background: #eef1ed;
+}
+
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.contact-info h2 {
+    max-width: 600px;
+    margin-bottom: 20px;
+}
+
+.contact-info > p {
+    margin-bottom: 35px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 22px;
+}
+
+.contact-icon {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    background: white;
+    color: var(--primary);
+    box-shadow: var(--shadow-sm);
+}
+
+.contact-item small,
+.contact-item strong,
+.contact-item span {
+    display: block;
+}
+
+.contact-item small {
+    color: var(--muted);
+    font-size: 0.7rem;
+}
+
+.contact-item strong {
+    font-size: 0.95rem;
+}
+
+.contact-item span {
+    color: var(--muted);
+    font-size: 0.78rem;
+}
+
+.contact-card {
+    padding: 40px;
+    border-radius: var(--radius-lg);
+    background: var(--primary);
+    color: white;
+    box-shadow: var(--shadow-lg);
+}
+
+.contact-card h3 {
+    font-size: 1.8rem;
+}
+
+.contact-card > p {
+    margin: 8px 0 25px;
+    color: rgba(255,255,255,0.7);
+}
+
+.contact-option {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 17px;
+    margin-top: 10px;
+    border: 1px solid rgba(255,255,255,0.12);
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.contact-option:hover {
+    background: rgba(255,255,255,0.08);
+    transform: translateX(5px);
+}
+
+.option-icon {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background: rgba(255,255,255,0.1);
+    color: #d7bb7d;
+}
+
+.contact-option span:nth-child(2) {
+    flex: 1;
+}
+
+.contact-option strong,
+.contact-option small {
+    display: block;
+}
+
+.contact-option strong {
+    font-size: 0.82rem;
+}
+
+.contact-option small {
+    color: rgba(255,255,255,0.55);
+    font-size: 0.7rem;
+}
+
+.contact-option > i {
+    color: rgba(255,255,255,0.5);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    padding-top: 75px;
+    background: #102b24;
+    color: white;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.7fr 1fr 1fr 1.2fr;
+    gap: 50px;
+    padding-bottom: 60px;
+}
+
+.footer-brand p {
+    max-width: 350px;
+    margin: 22px 0;
+    color: rgba(255,255,255,0.55);
+    font-size: 0.82rem;
+}
+
+.footer-column h4 {
+    margin-bottom: 20px;
+    color: white;
+    font-family: "DM Sans", sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+}
+
+.footer-column a,
+.footer-column p {
+    display: block;
+    margin-bottom: 10px;
+    color: rgba(255,255,255,0.58);
+    font-size: 0.8rem;
+    transition: 0.3s;
+}
+
+.footer-column a:hover {
+    color: white;
+}
+
+.social-links {
+    display: flex;
+    gap: 9px;
+}
+
+.social-links a {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(255,255,255,0.14);
+    border-radius: 50%;
+    color: rgba(255,255,255,0.7);
+    transition: 0.3s;
+}
+
+.social-links a:hover {
+    background: white;
+    color: var(--primary);
+}
+
+.footer-bottom {
+    padding: 20px 0;
+    border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.footer-bottom .container {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.footer-bottom span {
+    color: rgba(255,255,255,0.4);
+    font-size: 0.7rem;
+}
+
+
+/* =========================================================
+   WHATSAPP FLUTUANTE
+========================================================= */
+
+.whatsapp-float {
+    position: fixed;
+    z-index: 200;
+    right: 25px;
+    bottom: 25px;
+
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 14px 20px;
+
+    border-radius: 100px;
+
+    background: #25d366;
+    color: white;
+
+    box-shadow: 0 10px 35px rgba(0,0,0,0.2);
+
+    font-size: 0.82rem;
+    font-weight: 700;
+
+    transition: 0.3s;
+}
+
+.whatsapp-float:hover {
+    transform: translateY(-4px);
+    background: #1ebe5d;
+}
+
+.whatsapp-float i {
+    font-size: 1.25rem;
+}
+
+
+/* =========================================================
+   ANIMAÇÕES
+========================================================= */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.hero-content {
+    animation: fadeUp 0.9s ease forwards;
+}
+
+
+/* =========================================================
+   TABLET
+========================================================= */
+
+@media (max-width: 1050px) {
+
+    .nav {
+        gap: 18px;
+    }
+
+    .header-whatsapp {
+        display: none;
+    }
+
+    .property-search {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .search-button {
+        min-height: 60px;
+    }
+
+    .properties-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-grid {
+        gap: 50px;
+    }
+
+    .steps-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .footer-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 760px) {
+
+    .container {
+        width: min(100% - 28px, var(--container));
+    }
+
+
+    /* HEADER */
+
+    .header {
+        padding: 16px 0;
+    }
+
+    .nav {
+        display: none;
+    }
+
+    .menu-mobile {
+        display: grid;
+        place-items: center;
+    }
+
+    .logo-icon {
+        width: 40px;
+        height: 40px;
+    }
+
+    .logo-text strong {
+        font-size: 1.15rem;
+    }
+
+    .logo-text small {
+        font-size: 0.55rem;
+    }
+
+
+    /* HERO */
+
+    .hero {
+        min-height: 750px;
+        background:
+            linear-gradient(
+                180deg,
+                rgba(10, 28, 23, 0.80),
+                rgba(10, 28, 23, 0.90)
+            ),
+            url("../images/hero.jpg") center/cover no-repeat;
+    }
+
+    .hero-content {
+        padding-top: 80px;
+    }
+
+    .hero h1 {
+        font-size: clamp(2.7rem, 13vw, 4rem);
+    }
+
+    .hero p {
+        font-size: 0.95rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons .btn {
+        width: 100%;
+    }
+
+
+    /* BUSCA */
+
+    .search-section {
+        margin-top: -45px;
+    }
+
+    .search-box {
+        padding: 22px;
+    }
+
+    .property-search {
+        grid-template-columns: 1fr;
+    }
+
+    .search-button {
+        width: 100%;
+    }
+
+
+    /* SEÇÕES */
+
+    .properties-section,
+    .about-section,
+    .steps-section,
+    .contact-section {
+        padding: 80px 0;
+    }
+
+    .section-heading {
+        align-items: flex-start;
+        flex-direction: column;
+        margin-bottom: 30px;
+    }
+
+    .section-heading h2 {
+        font-size: 2.3rem;
+    }
+
+
+    /* IMÓVEIS */
+
+    .properties-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .property-image {
+        height: 250px;
+    }
+
+
+    /* SOBRE */
+
+    .about-grid {
+        grid-template-columns: 1fr;
+        gap: 55px;
+    }
+
+    .about-image > img {
+        height: 450px;
+    }
+
+    .about-badge {
+        right: 15px;
+        bottom: -20px;
+    }
+
+
+    /* VENDA */
+
+    .sell-section {
+        padding: 90px 0;
+    }
+
+
+    /* PASSOS */
+
+    .steps-grid {
+        grid-template-columns: 1fr;
+    }
+
+
+    /* CONTATO */
+
+    .contact-grid {
+        grid-template-columns: 1fr;
+        gap: 45px;
+    }
+
+    .contact-card {
+        padding: 25px;
+    }
+
+
+    /* FOOTER */
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .footer-bottom .container {
+        flex-direction: column;
+    }
+
+
+    /* WHATSAPP */
+
+    .whatsapp-float {
+        right: 15px;
+        bottom: 15px;
+        width: 55px;
+        height: 55px;
+        justify-content: center;
+        padding: 0;
+        border-radius: 50%;
+    }
+
+    .whatsapp-float span {
+        display: none;
+    }
+
+    .whatsapp-float i {
+        font-size: 1.4rem;
+    }
+
+}
+
+
+/* =========================================================
+   MOBILE PEQUENO
+========================================================= */
+
+@media (max-width: 400px) {
+
+    .hero h1 {
+        font-size: 2.65rem;
+    }
+
+    .property-content {
+        padding: 20px;
+    }
+
+    .search-box {
+        padding: 18px;
+    }
+
+    .contact-card {
+        padding: 20px;
+    }
+
+}
+```
